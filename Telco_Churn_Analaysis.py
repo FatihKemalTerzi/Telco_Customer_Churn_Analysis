@@ -73,7 +73,7 @@ def outlier_thresholds(dataframe, col_name, q1=0.25, q3 = 0.75):
     return low_limit, up_limit
 
 
-#Checkin columns with using outlier thresholds function
+#Checking columns with using outlier thresholds function
 def check_outlier(dataframe, col_name):
     low, up = outlier_thresholds(df, col_name)
 
@@ -93,16 +93,4 @@ def replace_with_thresholds(dataframe, variable):
 for col in num_cols:
     print(col, replace_with_thresholds(df, col))
 
-#New Feature creating
-df.loc[((df["tenure"] > 0) & (df["tenure"] <= 12)), "NEW_TENURE_YEAR"] = "0-1 YEAR"
-df.loc[((df["tenure"] > 12) & (df["tenure"] <= 24)), "NEW_TENURE_YEAR"] = "1-2 YEAR"
-df.loc[((df["tenure"] > 24) & (df["tenure"] <= 36)), "NEW_TENURE_YEAR"] = "2-3 YEAR"
-df.loc[((df["tenure"] > 36) & (df["tenure"] <= 48)), "NEW_TENURE_YEAR"] = "3-4 YEAR"
-df.loc[((df["tenure"] > 48) & (df["tenure"] <= 60)), "NEW_TENURE_YEAR"] = "4-5 YEAR"
-df.loc[((df["tenure"] > 60) & (df["tenure"] <= 72)), "NEW_TENURE_YEAR"] = "5-6 YEAR"
-
-df["tenure"]
-df["NEW_TENURE_YEAR"]
-df.head()
-
-
+df.isnull().sum()
